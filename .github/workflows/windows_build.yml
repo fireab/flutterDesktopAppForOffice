@@ -3,7 +3,7 @@ name: Build Windows Flutter App
 on:
   push:
     branches: [main]
-  workflow_dispatch: # Allows manual run
+  workflow_dispatch:
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
         run: flutter build windows --release
 
       - name: Upload executable
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-build
           path: build/windows/runner/Release/
