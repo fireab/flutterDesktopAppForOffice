@@ -1,0 +1,44 @@
+name: nifas_silk
+description: "A new Flutter project."
+
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.3 <4.0.0"
+capabilities:
+  - microphone
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_sound: ^9.17.8
+  http: ^1.2.2
+  intl: any
+  msix: ^3.16.8
+  path: ^1.9.0
+  path_provider: ^2.1.5
+  permission_handler: ^11.3.1
+  provider: ^6.1.2
+  record: ^5.2.0
+
+dev_dependencies:
+  flutter_gen_runner: ^5.0.2
+  build_runner: ^2.1.7
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/employee/
+msix_config:
+  display_name: AA Environmental Authority App
+  msix_version: 1.0.0.0
+  certificate_path: C:\Users\fraol\Documents\certificates\personal.pfx
+  certificate_password: 1234
+  logo_path: C:\Users\fraol\Documents\FiraolProjects2\Kality\KalityApplication\assets\icons\logo2Circular.png
