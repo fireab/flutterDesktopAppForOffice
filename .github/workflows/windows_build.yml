@@ -110,15 +110,69 @@
 #           path: build/windows/runner/Release/*.msix
 #           retention-days: 7
 
+# name: Build Flutter Windows App with Installer
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+# jobs:
+#   build-windows:
+#     runs-on: windows-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Set up Flutter
+#         uses: subosito/flutter-action@v2
+#         with:
+#           flutter-version: "3.x"
+#           channel: stable
+
+#       - name: Enable Windows desktop support
+#         run: flutter config --enable-windows-desktop
+
+#       - name: Install dependencies
+#         run: flutter pub get
+
+#       - name: Build Windows release executable
+#         run: flutter build windows --release
+
+#       - name: Install Inno Setup silently
+#         run: |
+#           Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
+#           Start-Process -FilePath "is.exe" -ArgumentList "/verysilent", "/sp-", "/suppressmsgboxes" -Wait
+#         shell: powershell
+
+#       - name: Build installer with Inno Setup
+#         run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" AAEnvironmentalAuthority.iss'
+#         shell: powershell
+
+#       - name: Upload Windows app build artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: flutter-windows-build
+#           path: build/windows/x64/runner/Release/
+
+#       - name: Upload installer .exe
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: flutter-installer-exe
+#           path: Output/Setup_AAEnvironmentalAuthority.exe
+
 name: Build Flutter Windows App with Installer
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -126,41 +180,70 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # 1️⃣ Get code
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Install Flutter
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.x"
           channel: stable
 
+      # 3️⃣ Enable desktop & get deps
       - name: Enable Windows desktop support
         run: flutter config --enable-windows-desktop
 
       - name: Install dependencies
         run: flutter pub get
 
+      # 4️⃣ Build Windows release
       - name: Build Windows release executable
         run: flutter build windows --release
 
-      - name: Install Inno Setup silently
+      # 5️⃣ Copy VC++ runtime DLLs into Release folder
+      - name: Copy required VC++ runtime DLLs
+        shell: pwsh
+        run: |
+          $dlls = @(
+            "VCRUNTIME140.dll",
+            "VCRUNTIME140_1.dll",
+            "MSVCP140.dll",
+            "CONCRT140.dll"
+          )
+          $src = "$env:SystemRoot\System32"
+          $dst = "build/windows/x64/runner/Release"
+          foreach ($dll in $dlls) {
+            $srcPath = Join-Path $src $dll
+            if (Test-Path $srcPath) {
+              Copy-Item $srcPath -Destination $dst -Force
+              Write-Host "✔ Copied $dll"
+            } else {
+              Write-Warning "✘ $dll not found in $src"
+            }
+          }
+
+      # 6️⃣ Install Inno Setup silently
+      - name: Install Inno Setup
+        shell: pwsh
         run: |
           Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
           Start-Process -FilePath "is.exe" -ArgumentList "/verysilent", "/sp-", "/suppressmsgboxes" -Wait
-        shell: powershell
 
+      # 7️⃣ Compile installer
       - name: Build installer with Inno Setup
+        shell: pwsh
         run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" AAEnvironmentalAuthority.iss'
-        shell: powershell
 
-      - name: Upload Windows app build artifact
+      # 8️⃣ Upload artifacts
+      - name: Upload Windows build files
         uses: actions/upload-artifact@v4
         with:
           name: flutter-windows-build
           path: build/windows/x64/runner/Release/
 
-      - name: Upload installer .exe
+      - name: Upload installer EXE
         uses: actions/upload-artifact@v4
         with:
           name: flutter-installer-exe
