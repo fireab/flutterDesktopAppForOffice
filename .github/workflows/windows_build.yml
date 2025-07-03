@@ -110,7 +110,7 @@
 #           path: build/windows/runner/Release/*.msix
 #           retention-days: 7
 
-name: Build Flutter Windows App + Installer
+name: Build Flutter Windows App with Installer
 
 on:
   push:
@@ -126,19 +126,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.x"
           channel: stable
 
-      - name: Enable Windows desktop
+      - name: Enable Windows desktop support
         run: flutter config --enable-windows-desktop
 
-      - name: Get dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Build Windows release executable
@@ -151,17 +151,17 @@ jobs:
         shell: powershell
 
       - name: Build installer with Inno Setup
-        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" nifas_silk.iss'
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" AAEnvironmentalAuthority.iss'
         shell: powershell
 
-      - name: Upload Flutter Windows release executable as artifact
+      - name: Upload Windows app build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: flutter-windows-release
+          name: flutter-windows-build
           path: build/windows/x64/runner/Release/
 
-      - name: Upload Inno Setup installer as artifact
+      - name: Upload installer .exe
         uses: actions/upload-artifact@v4
         with:
-          name: flutter-windows-installer
-          path: Output\Setup_NifasSilk.exe
+          name: flutter-installer-exe
+          path: Output/Setup_AAEnvironmentalAuthority.exe
