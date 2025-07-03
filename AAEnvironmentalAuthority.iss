@@ -38,10 +38,16 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 ; Main EXE
 Source: "build\windows\x64\runner\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 
-; All required DLLs including VCRUNTIME140_1.dll
+; Explicit Microsoft Visual C++ runtime DLLs (must be copied into Release folder before packaging)
+Source: "build\windows\x64\runner\Release\VCRUNTIME140.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\windows\x64\runner\Release\VCRUNTIME140_1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\windows\x64\runner\Release\MSVCP140.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build\windows\x64\runner\Release\CONCRT140.dll"; DestDir: "{app}"; Flags: ignoreversion
+
+; All other DLLs your Flutter build outputs
 Source: "build\windows\x64\runner\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
-; Any data or assets folder
+; Data or assets folder
 Source: "build\windows\x64\runner\Release\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Registry]
