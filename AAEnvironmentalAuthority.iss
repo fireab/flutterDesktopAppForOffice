@@ -1,4 +1,4 @@
-; Clean and GitHub Actions–safe Inno Setup script
+; Clean and GitHub Actions–safe Inno Setup script with full DLL support
 
 #define MyAppName "AA Environmental Authority"
 #define MyAppVersion "1.5"
@@ -35,8 +35,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
+; Main EXE
 Source: "build\windows\x64\runner\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\windows\x64\runner\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+
+; All required DLLs including VCRUNTIME140_1.dll
+Source: "build\windows\x64\runner\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+
+; Any data or assets folder
 Source: "build\windows\x64\runner\Release\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Registry]
