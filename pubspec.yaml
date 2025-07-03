@@ -1,44 +1,50 @@
-name: nifas_silk
-description: "A new Flutter project."
+name: Build Windows EXE for Flutter App
 
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main # Trigger on pull requests targeting the main branch
+  workflow_dispatch: # Allows you to manually trigger the workflow from GitHub UI
 
-version: 1.0.0+1
+jobs:
+  build-windows-exe:
+    # This job runs on a Windows virtual machine, which is necessary for building Windows executables.
+    runs-on: windows-latest
 
-environment:
-  sdk: ">=3.4.3 <4.0.0"
-capabilities:
-  - microphone
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  flutter_sound: ^9.17.8
-  http: ^1.2.2
-  intl: any
-  msix: ^3.16.8
-  path: ^1.9.0
-  path_provider: ^2.1.5
-  permission_handler: ^11.3.1
-  provider: ^6.1.2
-  record: ^5.2.0
+    steps:
+      - name: Checkout code
+        # Uses the official GitHub action to check out your repository's code.
+        uses: actions/checkout@v4
 
-dev_dependencies:
-  flutter_gen_runner: ^5.0.2
-  build_runner: ^2.1.7
-  flutter_test:
-    sdk: flutter
+      - name: Set up Flutter SDK
+        # Uses a community action to set up the Flutter environment.
+        # You can specify the Flutter version you want to use.
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.x" # Use a specific Flutter version, e.g., '3.19.x' or '3.22.x'
+          channel: "stable" # Or 'beta', 'master' if needed
 
-flutter:
-  generate: true
-  uses-material-design: true
-  assets:
-    - assets/icons/
-    - assets/employee/
-msix_config:
-  display_name: AA Environmental Authority App
-  msix_version: 1.0.0.0
-  certificate_path: C:\Users\fraol\Documents\certificates\personal.pfx
-  certificate_password: 1234
-  logo_path: C:\Users\fraol\Documents\FiraolProjects2\Kality\KalityApplication\assets\icons\logo2Circular.png
+      - name: Enable Windows desktop support
+        # Flutter requires enabling desktop support before building for Windows.
+        run: flutter config --enable-windows-desktop
+
+      - name: Get Flutter dependencies
+        # Fetches all the required packages for your Flutter project.
+        run: flutter pub get
+
+      - name: Build Windows release executable
+        # Builds the Flutter application for Windows in release mode.
+        # The output will be in build/windows/x64/runner/Release/
+        run: flutter build windows --release
+
+      - name: Upload Windows executable as artifact
+        # Uploads the generated build files as a workflow artifact.
+        # This allows you to download the .exe and its dependencies after the workflow completes.
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-app-release
+          path: build/windows/x64/runner/Release/ # Path to the built application files
+          retention-days: 7 # How long to retain the artifact (optional)
