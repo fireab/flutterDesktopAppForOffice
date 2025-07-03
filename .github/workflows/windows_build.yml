@@ -59,7 +59,58 @@
 #           path: build/windows/x64/runner/Release/ # Path to the built application files
 #           retention-days: 7 # How long to retain the artifact (optional)
 
-name: Full Flutter Windows CI/CD Pipeline
+# name: Full Flutter Windows CI/CD Pipeline
+
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+# jobs:
+#   build-and-test-windows:
+#     runs-on: windows-latest
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+
+#       - name: Set up Flutter SDK
+#         uses: subosito/flutter-action@v2
+#         with:
+#           flutter-version: "3.x"
+#           channel: "stable"
+
+#       - name: Enable Windows desktop support
+#         run: flutter config --enable-windows-desktop
+
+#       - name: Get Flutter dependencies
+#         run: flutter pub get
+
+#       - name: Build Windows release executable
+#         run: flutter build windows --release
+
+#       - name: Build MSIX setup installer (unsigned)
+#         run: flutter pub run msix:create
+
+#       - name: Upload Windows executable as artifact
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: windows-app-release
+#           path: build/windows/x64/runner/Release/
+#           retention-days: 7
+
+#       - name: Upload MSIX setup installer
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: windows-setup-installer
+#           path: build/windows/runner/Release/*.msix
+#           retention-days: 7
+
+name: Build Flutter Windows App + Installer
 
 on:
   push:
@@ -71,41 +122,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test-windows:
+  build-windows:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Flutter SDK
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.x"
-          channel: "stable"
+          channel: stable
 
-      - name: Enable Windows desktop support
+      - name: Enable Windows desktop
         run: flutter config --enable-windows-desktop
 
-      - name: Get Flutter dependencies
+      - name: Get dependencies
         run: flutter pub get
 
       - name: Build Windows release executable
         run: flutter build windows --release
 
-      - name: Build MSIX setup installer (unsigned)
-        run: flutter pub run msix:create
+      - name: Install Inno Setup
+        run: |
+          Invoke-WebRequest -Uri "https://jrsoftware.org/download.php/is.exe" -OutFile "is.exe"
+          Start-Process -FilePath "is.exe" -ArgumentList "/verysilent", "/sp-", "/suppressmsgboxes" -Wait
+        shell: powershell
 
-      - name: Upload Windows executable as artifact
+      - name: Build installer with Inno Setup
+        run: '"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" nifas_silk.iss'
+        shell: powershell
+
+      - name: Upload Flutter Windows release executable as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows-app-release
+          name: flutter-windows-release
           path: build/windows/x64/runner/Release/
-          retention-days: 7
 
-      - name: Upload MSIX setup installer
+      - name: Upload Inno Setup installer as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows-setup-installer
-          path: build/windows/runner/Release/*.msix
-          retention-days: 7
+          name: flutter-windows-installer
+          path: path\to\output\installer.exe
