@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
     print("size " + size.width.toString());
     final buttonWidth = size.width * 0.4; // 40% of the screen width
     final buttonHeight = size.height * 0.31; // 10% of the screen height
-    final overallbuttonHeight = size.height * 0.21;
+    // final overallbuttonHeight = size.height * 0.21;
     final horizontalGap = size.height * 0.08; // 10% of the screen height
     return Scaffold(
       appBar: PreferredSize(

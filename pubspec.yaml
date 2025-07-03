@@ -12,6 +12,7 @@ capabilities:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_lints: ^2.0.0
   flutter_localizations:
     sdk: flutter
   flutter_sound: ^9.17.8
