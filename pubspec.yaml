@@ -41,6 +41,7 @@ flutter:
 msix_config:
   display_name: AA Environmental Authority App
   msix_version: 1.0.0.0
-  certificate_path: C:\Users\fraol\Documents\certificates\personal.pfx
-  certificate_password: 1234
-  logo_path: C:\Users\fraol\Documents\FiraolProjects2\Kality\KalityApplication\assets\icons\logo2Circular.png
+  publisher: CN=AAEnvironmentalAuthority
+  identity_name: com.aa.environment.app
+  sign_msix: false
+  logo_path: assets/icons/logo2Circular.png
