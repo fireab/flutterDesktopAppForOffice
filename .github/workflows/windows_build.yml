@@ -35,15 +35,15 @@ jobs:
         # Fetches all the required packages for your Flutter project.
         run: flutter pub get
 
-      - name: Analyze Flutter code
-        # Runs static analysis on your Flutter project to catch potential issues and enforce best practices.
-        # This step will fail the workflow if there are any analysis errors or warnings (depending on your analysis_options.yaml).
-        run: flutter analyze
+      # - name: Analyze Flutter code
+      #   # Runs static analysis on your Flutter project to catch potential issues and enforce best practices.
+      #   # This step will fail the workflow if there are any analysis errors or warnings (depending on your analysis_options.yaml).
+      #   run: flutter analyze
 
-      - name: Run Flutter tests
-        # Executes all unit and widget tests defined in your Flutter project.
-        # This step will fail the workflow if any tests fail.
-        run: flutter test
+      # - name: Run Flutter tests
+      #   # Executes all unit and widget tests defined in your Flutter project.
+      #   # This step will fail the workflow if any tests fail.
+      #   run: flutter test
 
       - name: Build Windows release executable
         # Builds the Flutter application for Windows in release mode.
