@@ -59,54 +59,48 @@
 #           path: build/windows/x64/runner/Release/ # Path to the built application files
 #           retention-days: 7 # How long to retain the artifact (optional)
 
-name: Full Flutter Windows CI/CD Pipeline
+name: Flutter Windows – EXE + MSIX
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  build-and-package-windows:
+  build-windows:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Flutter SDK
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.x"
-          channel: "stable"
+          channel: stable
 
-      - name: Enable Windows desktop support
+      - name: Enable desktop
         run: flutter config --enable-windows-desktop
 
-      - name: Install Flutter dependencies
+      - name: Install deps
         run: flutter pub get
 
-      - name: Build Windows release
+      - name: Build release EXE
         run: flutter build windows --release
 
-      - name: Disable MSIX signing (for GitHub CI)
-        run: |
-          (Get-Content pubspec.yaml) -replace 'certificate_path:.*', 'sign_msix: false' | Set-Content pubspec.yaml
-
-      - name: Build MSIX installer
+      - name: Build MSIX installer (unsigned)
         run: flutter pub run msix:create
 
-      - name: Upload built Windows executable (.exe + DLLs)
+      - name: Upload EXE bundle
         uses: actions/upload-artifact@v4
         with:
           name: windows-app-release
           path: build/windows/x64/runner/Release/
 
-      - name: Upload MSIX setup installer
+      - name: Upload MSIX installer
         uses: actions/upload-artifact@v4
         with:
           name: windows-setup-installer
