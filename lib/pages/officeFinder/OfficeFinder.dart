@@ -181,7 +181,7 @@ class Officefinder extends StatelessWidget {
      * kuri,asrat
      */
     //declare the office groups
-    List<int> office_group = [10, 11, 12, 13, 15, 16, 17, 18, 19, 22, 26, 32];
+    List<int> office_group = [];
     if (office_group.contains(id)) {
       return AppLocalizations.of(context)!.office + " - " + office_number;
     } else {

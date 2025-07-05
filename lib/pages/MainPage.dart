@@ -58,27 +58,27 @@ class MainPage extends StatelessWidget {
                     ),
 
                     SizedBox(width: horizontalGap), // Space between buttons
-                    // buildButton(
-                    //     context,
-                    //     Officefinder(),
-                    //     AppLocalizations.of(context)!.direction,
-                    //     AppLocalizations.of(context)!.direction_description,
-                    //     buttonWidth,
-                    //     buttonHeight),
-                    IgnorePointer(
-                      ignoring: true,
-                      child: Opacity(
-                        opacity: 0.4, // faded to show disabled
-                        child: buildButton(
-                          context,
-                          Officefinder(),
-                          AppLocalizations.of(context)!.direction,
-                          AppLocalizations.of(context)!.direction_description,
-                          buttonWidth,
-                          buttonHeight,
-                        ),
-                      ),
-                    )
+                    buildButton(
+                        context,
+                        Officefinder(),
+                        AppLocalizations.of(context)!.direction,
+                        AppLocalizations.of(context)!.direction_description,
+                        buttonWidth,
+                        buttonHeight),
+                    // IgnorePointer(
+                    //   ignoring: true,
+                    //   child: Opacity(
+                    //     opacity: 0.4, // faded to show disabled
+                    //     child: buildButton(
+                    //       context,
+                    //       Officefinder(),
+                    //       AppLocalizations.of(context)!.direction,
+                    //       AppLocalizations.of(context)!.direction_description,
+                    //       buttonWidth,
+                    //       buttonHeight,
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
                 SizedBox(height: horizontalGap), // Space between rows
