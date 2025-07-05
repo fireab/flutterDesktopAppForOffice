@@ -27,116 +27,216 @@ class MainPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(10, 40, 10, 40),
           child: Center(
-            child: Wrap(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // spacing: 10.0, // gap between adjacent items
-              runSpacing: 30.0, // gap between lines
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // buildButton(
-                    //     context,
-                    //     SelectMainService(),
-                    //     AppLocalizations.of(context)!.services,
-                    //     AppLocalizations.of(context)!.service_description,
-                    //     buttonWidth,
-                    //     buttonHeight),
-                    IgnorePointer(
-                      ignoring: true,
-                      child: Opacity(
-                        opacity: 0.4, // faded to show disabled
-                        child: buildButton(
-                          context,
-                          SelectMainService(),
-                          AppLocalizations.of(context)!.services,
-                          AppLocalizations.of(context)!.service_description,
-                          buttonWidth,
-                          buttonHeight,
-                        ),
-                      ),
-                    ),
+            // child: Wrap(
+            //   // mainAxisAlignment: MainAxisAlignment.center,
+            //   // spacing: 10.0, // gap between adjacent items
+            //   runSpacing: 30.0, // gap between lines
+            //   children: [
+            //     Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         // buildButton(
+            //         //     context,
+            //         //     SelectMainService(),
+            //         //     AppLocalizations.of(context)!.services,
+            //         //     AppLocalizations.of(context)!.service_description,
+            //         //     buttonWidth,
+            //         //     buttonHeight),
+            //         // IgnorePointer(
+            //         //   ignoring: false,
+            //         //   child: Opacity(
+            //         //     opacity: 0.4, // faded to show disabled
+            //         //     child: buildButton(
+            //         //       context,
+            //         //       SelectMainService(),
+            //         //       AppLocalizations.of(context)!.services,
+            //         //       AppLocalizations.of(context)!.service_description,
+            //         //       buttonWidth,
+            //         //       buttonHeight,
+            //         //     ),
+            //         //   ),
+            //         // ),
 
-                    SizedBox(width: horizontalGap), // Space between buttons
-                    buildButton(
-                        context,
-                        Officefinder(),
-                        AppLocalizations.of(context)!.direction,
-                        AppLocalizations.of(context)!.direction_description,
-                        buttonWidth,
-                        buttonHeight),
-                    // IgnorePointer(
-                    //   ignoring: true,
-                    //   child: Opacity(
-                    //     opacity: 0.4, // faded to show disabled
-                    //     child: buildButton(
-                    //       context,
-                    //       Officefinder(),
-                    //       AppLocalizations.of(context)!.direction,
-                    //       AppLocalizations.of(context)!.direction_description,
-                    //       buttonWidth,
-                    //       buttonHeight,
-                    //     ),
-                    //   ),
-                    // )
-                  ],
+            //         SizedBox(width: horizontalGap), // Space between buttons
+            //         buildButton(
+            //             context,
+            //             Officefinder(),
+            //             AppLocalizations.of(context)!.direction,
+            //             AppLocalizations.of(context)!.direction_description,
+            //             buttonWidth,
+            //             buttonHeight),
+            //         // IgnorePointer(
+            //         //   ignoring: true,
+            //         //   child: Opacity(
+            //         //     opacity: 0.4, // faded to show disabled
+            //         //     child: buildButton(
+            //         //       context,
+            //         //       Officefinder(),
+            //         //       AppLocalizations.of(context)!.direction,
+            //         //       AppLocalizations.of(context)!.direction_description,
+            //         //       buttonWidth,
+            //         //       buttonHeight,
+            //         //     ),
+            //         //   ),
+            //         // )
+            //       ],
+            //     ),
+            //     SizedBox(height: horizontalGap), // Space between rows
+            //     Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         buildButton(
+            //           context,
+            //           ComplimentForm(),
+            //           AppLocalizations.of(context)!.comment,
+            //           AppLocalizations.of(context)!.comment_description,
+            //           buttonWidth,
+            //           buttonHeight,
+            //         ),
+            //         SizedBox(width: horizontalGap), // Space between buttons
+            //         // buildButton(
+            //         //     context,
+            //         //     FeedBackForm(),
+            //         //     AppLocalizations.of(context)!.rate,
+            //         //     AppLocalizations.of(context)!.rate_description,
+            //         //     buttonWidth,
+            //         //     buttonHeight),
+            //         IgnorePointer(
+            //           ignoring: false,
+            //           child: Opacity(
+            //             opacity: 1, // faded to show disabled
+            //             child: buildButton(
+            //                 context,
+            //                 FeedBackForm(),
+            //                 AppLocalizations.of(context)!.rate,
+            //                 AppLocalizations.of(context)!.rate_description,
+            //                 buttonWidth,
+            //                 buttonHeight),
+            //           ),
+            //         )
+            //       ],
+            //     ),
+            //     SizedBox(height: horizontalGap), // Space between rows
+            //     Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         buildButton(
+            //             context,
+            //             CompanyFeedbackForm(),
+            //             AppLocalizations.of(context)!.comment_company,
+            //             AppLocalizations.of(context)!.rate_overall_service,
+            //             // AppLocalizations.of(context)!.rate_company_description,
+            //             buttonWidth,
+            //             buttonHeight),
+            //         SizedBox(width: horizontalGap), // Space between buttons
+            //         buildButton(
+            //             context,
+            //             TopRatedEmployees(),
+            //             AppLocalizations.of(context)!.top_rated_tile,
+            //             AppLocalizations.of(context)!.top_rated_description,
+            //             buttonWidth,
+            //             buttonHeight),
+            //       ],
+            //     ),
+            //   ],
+            // ),
+            child: Wrap(
+              alignment:
+                  WrapAlignment.center, // center all buttons horizontally
+              spacing: horizontalGap, // horizontal gap between buttons
+              runSpacing: 30.0, // vertical gap between rows
+              children: [
+                // Uncomment and add if you want this button:
+                // buildButton(
+                //   context,
+                //   SelectMainService(),
+                //   AppLocalizations.of(context)!.services,
+                //   AppLocalizations.of(context)!.service_description,
+                //   buttonWidth,
+                //   buttonHeight,
+                // ),
+
+                // If you want the disabled faded button:
+                // IgnorePointer(
+                //   ignoring: false,
+                //   child: Opacity(
+                //     opacity: 0.4,
+                //     child: buildButton(
+                //       context,
+                //       SelectMainService(),
+                //       AppLocalizations.of(context)!.services,
+                //       AppLocalizations.of(context)!.service_description,
+                //       buttonWidth,
+                //       buttonHeight,
+                //     ),
+                //   ),
+                // ),
+
+                buildButton(
+                  context,
+                  Officefinder(),
+                  AppLocalizations.of(context)!.direction,
+                  AppLocalizations.of(context)!.direction_description,
+                  buttonWidth,
+                  buttonHeight,
                 ),
-                SizedBox(height: horizontalGap), // Space between rows
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    buildButton(
+
+                buildButton(
+                  context,
+                  ComplimentForm(),
+                  AppLocalizations.of(context)!.comment,
+                  AppLocalizations.of(context)!.comment_description,
+                  buttonWidth,
+                  buttonHeight,
+                ),
+
+                IgnorePointer(
+                  ignoring: false,
+                  child: Opacity(
+                    opacity:
+                        1, // fully opaque, can be changed if you want faded
+                    child: buildButton(
                       context,
-                      ComplimentForm(),
-                      AppLocalizations.of(context)!.comment,
-                      AppLocalizations.of(context)!.comment_description,
+                      FeedBackForm(),
+                      AppLocalizations.of(context)!.rate,
+                      AppLocalizations.of(context)!.rate_description,
                       buttonWidth,
                       buttonHeight,
                     ),
-                    SizedBox(width: horizontalGap), // Space between buttons
-                    // buildButton(
-                    //     context,
-                    //     FeedBackForm(),
-                    //     AppLocalizations.of(context)!.rate,
-                    //     AppLocalizations.of(context)!.rate_description,
-                    //     buttonWidth,
-                    //     buttonHeight),
-                    IgnorePointer(
-                      ignoring: false,
-                      child: Opacity(
-                        opacity: 1, // faded to show disabled
-                        child: buildButton(
-                            context,
-                            FeedBackForm(),
-                            AppLocalizations.of(context)!.rate,
-                            AppLocalizations.of(context)!.rate_description,
-                            buttonWidth,
-                            buttonHeight),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-                SizedBox(height: horizontalGap), // Space between rows
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    buildButton(
-                        context,
-                        CompanyFeedbackForm(),
-                        AppLocalizations.of(context)!.comment_company,
-                        AppLocalizations.of(context)!.rate_overall_service,
-                        // AppLocalizations.of(context)!.rate_company_description,
-                        buttonWidth,
-                        buttonHeight),
-                    SizedBox(width: horizontalGap), // Space between buttons
-                    buildButton(
-                        context,
-                        TopRatedEmployees(),
-                        AppLocalizations.of(context)!.top_rated_tile,
-                        AppLocalizations.of(context)!.top_rated_description,
-                        buttonWidth,
-                        buttonHeight),
-                  ],
+
+                buildButton(
+                  context,
+                  CompanyFeedbackForm(),
+                  AppLocalizations.of(context)!.comment_company,
+                  AppLocalizations.of(context)!.rate_overall_service,
+                  // AppLocalizations.of(context)!.rate_company_description,
+                  buttonWidth,
+                  buttonHeight,
+                ),
+
+                buildButton(
+                  context,
+                  TopRatedEmployees(),
+                  AppLocalizations.of(context)!.top_rated_tile,
+                  AppLocalizations.of(context)!.top_rated_description,
+                  buttonWidth,
+                  buttonHeight,
+                ),
+                Opacity(
+                  opacity: 0.0,
+                  child: IgnorePointer(
+                    ignoring: true,
+                    child: buildButton(
+                      context,
+                      Container(),
+                      '',
+                      '',
+                      buttonWidth,
+                      buttonHeight,
+                    ),
+                  ),
                 ),
               ],
             ),
