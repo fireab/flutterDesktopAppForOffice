@@ -102,9 +102,9 @@ class MainPage extends StatelessWidget {
                     //     buttonWidth,
                     //     buttonHeight),
                     IgnorePointer(
-                      ignoring: true,
+                      ignoring: false,
                       child: Opacity(
-                        opacity: 0.4, // faded to show disabled
+                        opacity: 1, // faded to show disabled
                         child: buildButton(
                             context,
                             FeedBackForm(),

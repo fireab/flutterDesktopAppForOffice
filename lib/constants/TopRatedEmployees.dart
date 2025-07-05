@@ -3,6 +3,8 @@ class Employee {
   late String amharic_name;
   late String oromic_name;
   late String oromic_position;
+  late String english_name;
+  late String english_position;
   late String path;
   late String position;
   late String office;
@@ -11,6 +13,8 @@ class Employee {
       required amharic_name,
       required oromic_name,
       required oromic_position,
+      required english_name,
+      required english_position,
       required path,
       required position,
       required office}) {
@@ -20,6 +24,8 @@ class Employee {
     this.oromic_position = oromic_position;
     this.path = path;
     this.position = position;
+    this.english_position = english_position;
+    this.english_name = english_name;
     this.office = office;
   }
   factory Employee.fromJson(Map<String, dynamic> json) {
@@ -28,6 +34,8 @@ class Employee {
         amharic_name: json['amharic_name'],
         oromic_name: json['oromic_name'],
         oromic_position: json['oromic_position'],
+        english_name: json['english_name'],
+        english_position: json['english_position'],
         path: json['path'],
         position: json['position'],
         office: json['office']);

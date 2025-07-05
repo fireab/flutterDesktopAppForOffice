@@ -82,16 +82,34 @@ class _TopRatedEmployeesState extends State<TopRatedEmployees> {
                       return DataRow(
                         cells: <DataCell>[
                           DataCell(Text(employee.employee.id.toString())),
+                          // DataCell(
+                          //   AppLocalizations.of(context)!.localeName == "am"
+                          //       ? Text(employee.employee.amharic_name)
+                          //       : Text(employee.employee.oromic_name),
+                          // ),
                           DataCell(
                             AppLocalizations.of(context)!.localeName == "am"
                                 ? Text(employee.employee.amharic_name)
-                                : Text(employee.employee.oromic_name),
+                                : AppLocalizations.of(context)!.localeName ==
+                                        "es"
+                                    ? Text(employee.employee.english_name)
+                                    : Text(employee.employee.oromic_name),
                           ),
+
+                          // DataCell(
+                          //   AppLocalizations.of(context)!.localeName == "am"
+                          //       ? Text(employee.employee.position)
+                          //       : Text(employee.employee.oromic_position),
+                          // ),
                           DataCell(
                             AppLocalizations.of(context)!.localeName == "am"
                                 ? Text(employee.employee.position)
-                                : Text(employee.employee.oromic_position),
+                                : AppLocalizations.of(context)!.localeName ==
+                                        "es"
+                                    ? Text(employee.employee.english_position)
+                                    : Text(employee.employee.oromic_position),
                           ),
+
                           DataCell(
                               Text(employee.getAverageScoreToPercentage())),
                         ],
