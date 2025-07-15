@@ -132,6 +132,37 @@ class SubOfficersFinders extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
+          // Add recursive sub-officer navigation
+          employee.hasSub == true
+              ? GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SubOfficersFinders(
+                                  officeId: employee.id,
+                                )));
+                  },
+                  child: Container(
+                      width: 250,
+                      height: 40,
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(top: 10),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 239, 243, 239),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context)!.team_members,
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 41, 174, 70),
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold),
+                      )),
+                )
+              : SizedBox(
+                  height: 0,
+                ),
         ],
       ),
     );
