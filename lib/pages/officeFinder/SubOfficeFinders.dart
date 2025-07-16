@@ -1,44 +1,77 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:nifas_silk/constants/BaseApi.dart';
 import 'package:nifas_silk/constants/Employees.dart';
 import 'package:nifas_silk/shared/CustomAppBar.dart';
 import 'package:nifas_silk/l10n/app_localizations.dart';
 
-class SubOfficersFinders extends StatelessWidget {
+class SubOfficersFinders extends StatefulWidget {
   final int officeId;
 
-  SubOfficersFinders({required this.officeId});
+  const SubOfficersFinders({required this.officeId});
+
+  @override
+  _SubOfficersFindersState createState() => _SubOfficersFindersState();
+}
+
+class _SubOfficersFindersState extends State<SubOfficersFinders> {
+  late Future<List<Employee>> futureSubEmployees;
+
+  @override
+  void initState() {
+    super.initState();
+    futureSubEmployees = fetchSubEmployees();
+  }
+
+  Future<List<Employee>> fetchSubEmployees() async {
+    final response =
+        await http.get(Uri.parse('http://localhost:2000/employee/'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = jsonDecode(response.body);
+      final employees = data.map((e) => Employee.fromJson(e)).toList();
+      return employees.where((e) => e.team_id == widget.officeId).toList();
+    } else {
+      throw Exception('Failed to load employees');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<Employee> subEmployees =
-        Employees.where((element) => element.team_id == officeId).toList();
     return Scaffold(
-        appBar: PreferredSize(
-            preferredSize:
-                Size.fromHeight(100.0), // Set the desired height here
-            child: customAppBar(context, false)),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Center(
-              child: Wrap(
-                spacing: 1.0, // gap between adjacent items
-                runSpacing: 20.0, // gap between lines
-
-                children: subEmployees.map((Employee employee) {
-                  return Officers(
-                    employee,
-                    context,
-                  );
-                }).toList(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.0),
+        child: customAppBar(context, false),
+      ),
+      body: FutureBuilder<List<Employee>>(
+        future: futureSubEmployees,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final subEmployees = snapshot.data!;
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: Wrap(
+                    spacing: 1.0,
+                    runSpacing: 20.0,
+                    children:
+                        subEmployees.map((e) => buildOfficerCard(e)).toList(),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ));
+            );
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
+    );
   }
 
-  Widget Officers(Employee employee, BuildContext context,
-      {bool has_color = false}) {
+  Widget buildOfficerCard(Employee employee, {bool hasColor = false}) {
     return Container(
       width: 300,
       height: 320,
@@ -49,22 +82,18 @@ class SubOfficersFinders extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 3,
-            blurRadius: 7,
-            offset: const Offset(0, 3),
-          ),
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 3,
+              blurRadius: 7,
+              offset: Offset(0, 3))
         ],
       ),
       child: Column(
         children: [
-          // Profile Image
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: has_color
-                  ? Colors.green
-                  : Color.fromRGBO(73, 111, 138, 1), // Border color
+              color: hasColor ? Colors.green : Color.fromRGBO(73, 111, 138, 1),
             ),
             width: 300,
             child: CircleAvatar(
@@ -72,24 +101,12 @@ class SubOfficersFinders extends StatelessWidget {
               backgroundColor: Colors.white,
               child: CircleAvatar(
                 radius: 60,
-                // child: Image(
-                //     image: image_path != ""
-                //         ? AssetImage('assets/employee/' + image_path)
-                //         : AssetImage('assets/icons/profile_holder.jpg')),
                 backgroundImage: employee.path != ""
-                    ? AssetImage('assets/employee/' + employee.path)
-                    : AssetImage('assets/icons/profile_holder.jpg'),
-                // backgroundImage: AssetImage(
-                //   image_path != ""
-                //       ? 'assets/employee/' + image_path
-                //       : 'assets/icons/profile_holder.jpg',
-                // ),
-                // backgroundColor: Colors.white,
+                    ? NetworkImage(Api.baseUrl + "/public/" + employee.path)
+                    : const AssetImage('assets/icons/profile_holder.jpg'),
               ),
             ),
           ),
-
-          // Employee Name
           Container(
             margin: const EdgeInsets.only(top: 10, bottom: 5),
             height: 20,
@@ -103,13 +120,11 @@ class SubOfficersFinders extends StatelessWidget {
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
-          // pOSITION
           Container(
             height: 20,
             alignment: Alignment.center,
             margin: const EdgeInsets.only(top: 10),
             padding: const EdgeInsets.all(4),
-            // color: const Color.fromARGB(255, 234, 240, 235),
             child: Text(
               AppLocalizations.of(context)!.localeName == "am"
                   ? employee.position
@@ -125,44 +140,43 @@ class SubOfficersFinders extends StatelessWidget {
             alignment: Alignment.center,
             margin: const EdgeInsets.only(top: 10),
             padding: const EdgeInsets.all(4),
-            // color: const Color.fromARGB(255, 234, 240, 235),
             child: Text(
-              AppLocalizations.of(context)!.office + " " + employee.office,
+              "${AppLocalizations.of(context)!.office} ${employee.office}",
               style: const TextStyle(fontSize: 11),
               textAlign: TextAlign.center,
             ),
           ),
-          // Add recursive sub-officer navigation
-          employee.hasSub == true
+          employee.hasSub
               ? GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SubOfficersFinders(
-                                  officeId: employee.id,
-                                )));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            SubOfficersFinders(officeId: employee.id),
+                      ),
+                    );
                   },
                   child: Container(
-                      width: 250,
-                      height: 40,
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 239, 243, 239),
-                        borderRadius: BorderRadius.circular(10),
+                    width: 250,
+                    height: 40,
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 239, 243, 239),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      AppLocalizations.of(context)!.team_members,
+                      style: const TextStyle(
+                        color: Color.fromARGB(255, 41, 174, 70),
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
                       ),
-                      child: Text(
-                        AppLocalizations.of(context)!.team_members,
-                        style: const TextStyle(
-                            color: Color.fromARGB(255, 41, 174, 70),
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold),
-                      )),
+                    ),
+                  ),
                 )
-              : SizedBox(
-                  height: 0,
-                ),
+              : const SizedBox.shrink(),
         ],
       ),
     );
