@@ -24,7 +24,8 @@ class climateChangeAndAlternativEnergyService extends StatelessWidget {
             child: customAppBar(context, false,
                 title: AppLocalizations.of(context)!.office_name +
                     " " +
-                    AppLocalizations.of(context)!.driver_services)),
+                    AppLocalizations.of(context)!
+                        .climate_change_and_alternative_energy_technology_dissemination_and_awareness)),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),
