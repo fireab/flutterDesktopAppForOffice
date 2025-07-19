@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nifas_silk/l10n/app_localizations.dart';
-import 'package:nifas_silk/pages/services/VehicleServiceList.dart';
 import 'package:nifas_silk/pages/services/DriverServiceList.dart';
+import 'package:nifas_silk/pages/services/EnvironmentalPollutionControl.dart';
+import 'package:nifas_silk/pages/services/VehicleServiceList.dart';
+import 'package:nifas_silk/pages/services/climateChangeAndAlternativEnergy.dart';
 import 'package:nifas_silk/shared/CustomAppBar.dart';
 
 class SelectMainService extends StatelessWidget {
@@ -73,7 +75,106 @@ class SelectMainService extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            EnvironmentalPollutionControlService()),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Color.fromRGBO(11, 73, 118, 1), // Border color
+                      width: 2.0, // Border width
+                    ),
+                    borderRadius: BorderRadius.circular(15.0), // Border radius
+                  ),
+                  width: buttonWidth,
+                  height: buttonHeight,
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage(
+                                'assets/icons/driver2.png'), // Replace with your image URL
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Text(
+                          AppLocalizations.of(context)!.driver_services,
+                          style: TextStyle(
+                            fontSize: size.width * 0.028,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(11, 73, 118, 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
                     MaterialPageRoute(builder: (context) => DriverService()),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      color: Color.fromRGBO(11, 73, 118, 1), // Border color
+                      width: 2.0, // Border width
+                    ),
+                    borderRadius: BorderRadius.circular(15.0), // Border radius
+                  ),
+                  width: buttonWidth,
+                  height: buttonHeight,
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage(
+                                'assets/icons/driver2.png'), // Replace with your image URL
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        Text(
+                          AppLocalizations.of(context)!
+                              .environmental_pollution_control,
+                          style: TextStyle(
+                            fontSize: size.width * 0.028,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(11, 73, 118, 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            climateChangeAndAlternativEnergyService()),
                   );
                 },
                 child: Container(

@@ -106,7 +106,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
-  /// **'Baga Gara Abbaa Taayitaa Hayyama fi To\'annoo Konkolaachisaa fi Konkolaataa Bulchiinsa Magaalaa Finfinneetti Waajjira Damee NifasSilk Laaftoo dhuftan'**
+  /// **'Baga Gara Abbaa Taayitaa H---------nsa Magaalaa Finfinneetti Waajjira Damee NifasSilk Laaftoo dhuftan'**
   String get welcome;
 
   /// No description provided for @services.
@@ -510,6 +510,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Lakk. Biiroo'**
   String get burueu;
+
+  /// No description provided for @environmental_pollution_control.
+  ///
+  /// In en, this message translates to:
+  /// **'Environmental pollution control'**
+  String get environmental_pollution_control;
+
+  /// No description provided for @climate_change_and_alternative_energy_technology_dissemination_and_awareness.
+  ///
+  /// In en, this message translates to:
+  /// **'Climate Change and Alternative Energy Technology Dissemination and Awareness'**
+  String get climate_change_and_alternative_energy_technology_dissemination_and_awareness;
+
+  /// No description provided for @mineral_resource_research_Licensing_and_management.
+  ///
+  /// In en, this message translates to:
+  /// **'Mineral Resource Research, Licensing, and Management'**
+  String get mineral_resource_research_Licensing_and_management;
+
+  /// No description provided for @biodiversity_and_ecosystem_management.
+  ///
+  /// In en, this message translates to:
+  /// **'Biodiversity and Ecosystem Management'**
+  String get biodiversity_and_ecosystem_management;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

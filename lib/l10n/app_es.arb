@@ -11,6 +11,12 @@
     "rate":"Rating Services",
     "rate_description":"Express your satisfaction with the company’s service delivery and hospitality",
     "driver_services":"Driver services",
+    
+    "environmental_pollution_control":"Environmental pollution control",
+    "climate_change_and_alternative_energy_technology_dissemination_and_awareness":"Climate Change and Alternative Energy Technology Dissemination and Awareness",
+    "mineral_resource_research_Licensing_and_management":"Mineral Resource Research, Licensing, and Management",
+    "biodiversity_and_ecosystem_management":"Biodiversity and Ecosystem Management",
+    
     "vehicle_services":"Vehicle service",
 
     "time_it_takes":"Time it takes",

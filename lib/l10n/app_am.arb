@@ -72,5 +72,10 @@
     "team_members":"በስሩ/በስሯ የሚገኙ የቡድን አባላት >>",
     "group_members":"በስሩ/በስሯ የሚገኙ ቡድኖች >>",
     "audio_description":"የድምጽ ግብረመልስ ለመስጠት የመዝገብ ቁልፉን ለማንቃት ሙሉ ስም እና ትክክለኛ ስልክ ቁጥር ያስገቡ ከዛም ድምጽ ለመቅረጽ በተኑን ይጫኑ  ሲጨርሱ መልሰው በተኑን ይጫኑ እና አስተያየቶትን ይላኩ .",
-    "burueu":"ቢሮ ቁጥር"
+    "burueu":"ቢሮ ቁጥር",
+
+     "environmental_pollution_control":"የአካባቢ ብክለት ቁጥጥር",
+    "climate_change_and_alternative_energy_technology_dissemination_and_awareness":"የአየር ንብረት ለውጥና አማራጭ ኢነርጂ ቴክኖሎጂ ስርጭትና ማስተዋወቅ",
+    "mineral_resource_research_Licensing_and_management":"የማዕድን ሀብት ጥናትና ፈቃድና አስተዳደር ",
+    "biodiversity_and_ecosystem_management":"የስርዓተ ምህዳርና  ብዝሃህይወት አያያዝ "
 }
