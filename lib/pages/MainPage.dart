@@ -147,14 +147,14 @@ class MainPage extends StatelessWidget {
               runSpacing: 30.0, // vertical gap between rows
               children: [
                 // Uncomment and add if you want this button:
-                // buildButton(
-                //   context,
-                //   SelectMainService(),
-                //   AppLocalizations.of(context)!.services,
-                //   AppLocalizations.of(context)!.service_description,
-                //   buttonWidth,
-                //   buttonHeight,
-                // ),
+                buildButton(
+                  context,
+                  SelectMainService(),
+                  AppLocalizations.of(context)!.services,
+                  AppLocalizations.of(context)!.service_description,
+                  buttonWidth,
+                  buttonHeight,
+                ),
 
                 // If you want the disabled faded button:
                 // IgnorePointer(
