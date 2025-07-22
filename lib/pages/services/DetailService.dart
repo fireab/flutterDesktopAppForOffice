@@ -15,6 +15,8 @@ class DetailService extends StatelessWidget {
   late Services data;
   @override
   Widget build(BuildContext context) {
+    print("aaabrp");
+    print(type_service);
     data = findServiceByTypeAndIndex(
         index, type_service, AppLocalizations.of(context)!.localeName);
     final size = MediaQuery.of(context).size;

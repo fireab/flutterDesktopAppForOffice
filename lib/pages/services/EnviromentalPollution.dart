@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:nifas_silk/l10n/app_localizations.dart';
 import 'package:nifas_silk/helpers/Services.helper.dart';
 import 'package:nifas_silk/pages/services/DetailService.dart';
+import 'package:nifas_silk/pages/services/VehicleServiceList.dart';
 import 'package:nifas_silk/shared/CustomAppBar.dart';
 import 'package:nifas_silk/constants/Services.dart';
 
-class EnvironmentalPollutionControlService extends StatelessWidget {
-  const EnvironmentalPollutionControlService({super.key});
+class DriverService extends StatelessWidget {
+  const DriverService({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class EnvironmentalPollutionControlService extends StatelessWidget {
     final buttonHeight = size.height * 0.19; // 10% of the screen height
     final gap = size.height * 0.01;
     double fontSize = 17;
-    List<Services> data =
-        getVehicleServices(AppLocalizations.of(context)!.localeName);
+    List<Services> data = getEnvironmentalPollutionControlServices(
+        AppLocalizations.of(context)!.localeName);
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
@@ -24,7 +25,8 @@ class EnvironmentalPollutionControlService extends StatelessWidget {
             child: customAppBar(context, false,
                 title: AppLocalizations.of(context)!.office_name +
                     " " +
-                    AppLocalizations.of(context)!.driver_services)),
+                    AppLocalizations.of(context)!
+                        .environmental_pollution_control)),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),
@@ -57,7 +59,8 @@ class EnvironmentalPollutionControlService extends StatelessWidget {
       double fontSize,
       String name,
       int minutes) {
-    String time_decription = displayTimeItTakes(context, minutes);
+    String time_decription = "";
+    // displayTimeItTakes(context, minutes);
     return GestureDetector(
       onTap: () {
         // VehicleServices
@@ -66,7 +69,7 @@ class EnvironmentalPollutionControlService extends StatelessWidget {
           MaterialPageRoute(
               builder: (context) => DetailService(
                     index: index,
-                    type_service: 'vehicle',
+                    type_service: 'enviromental pollution',
                   )),
         );
       },
@@ -139,18 +142,4 @@ class EnvironmentalPollutionControlService extends StatelessWidget {
       ),
     );
   }
-}
-
-String displayTimeItTakes(BuildContext context, int minutes) {
-  return AppLocalizations.of(context)!.localeName == "am"
-      ? AppLocalizations.of(context)!.time_it_takes +
-          " " +
-          minutes.toString() +
-          " " +
-          AppLocalizations.of(context)!.minute
-      : AppLocalizations.of(context)!.time_it_takes +
-          " " +
-          AppLocalizations.of(context)!.minute +
-          " " +
-          minutes.toString();
 }

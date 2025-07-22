@@ -1,7 +1,7 @@
 {
     "@@locale": "es",
     "hello": "Hello",
-    "welcome": "Welcome uuthority",
+    "welcome": "Welcome Addis Ababa Environmental Protection Authority",
     "services":"Services",
     "service_description":"It will inform you about the services provided in the facility and the department where the services are provided, as well as what is expected of you to receive the services.",
     "direction":"Where do you want to go",
@@ -23,7 +23,7 @@
     "minute":"Minute",
 
     "requirement_to_get_service":"Prerequisites that the customer must meet to receive service",
-    "office_name":"NefasSelk Lafto Branch Office of the Driver and Vehicle Licensing and Control Authority",
+    "office_name":"Addis Ababa Environmental Protection Authority",
     "service_rate_title":"CheckList Prepared to Receive Customer Feedback on Office Services",
     "full_name":"Provide the full name of the committer",
     "name":"Name",

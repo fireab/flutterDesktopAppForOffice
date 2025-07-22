@@ -16,7 +16,7 @@ class climateChangeAndAlternativEnergyService extends StatelessWidget {
     final gap = size.height * 0.01;
     double fontSize = 17;
     List<Services> data =
-        getVehicleServices(AppLocalizations.of(context)!.localeName);
+        getClimentChangeService(AppLocalizations.of(context)!.localeName);
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:

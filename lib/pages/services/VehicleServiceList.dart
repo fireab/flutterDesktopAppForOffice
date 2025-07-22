@@ -16,7 +16,7 @@ class VehicleServices extends StatelessWidget {
     final gap = size.height * 0.01;
     double fontSize = 17;
     List<Services> data =
-        getVehicleServices(AppLocalizations.of(context)!.localeName);
+        getMineralResourceService(AppLocalizations.of(context)!.localeName);
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
@@ -24,7 +24,8 @@ class VehicleServices extends StatelessWidget {
             child: customAppBar(context, false,
                 title: AppLocalizations.of(context)!.office_name +
                     " " +
-                    AppLocalizations.of(context)!.driver_services)),
+                    AppLocalizations.of(context)!
+                        .mineral_resource_research_Licensing_and_management)),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),

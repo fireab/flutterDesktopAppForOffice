@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:nifas_silk/l10n/app_localizations.dart';
 import 'package:nifas_silk/helpers/Services.helper.dart';
 import 'package:nifas_silk/pages/services/DetailService.dart';
-import 'package:nifas_silk/pages/services/VehicleServiceList.dart';
 import 'package:nifas_silk/shared/CustomAppBar.dart';
 import 'package:nifas_silk/constants/Services.dart';
 
-class DriverService extends StatelessWidget {
-  const DriverService({super.key});
+class BioDiversitySErvice extends StatelessWidget {
+  const BioDiversitySErvice({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +15,8 @@ class DriverService extends StatelessWidget {
     final buttonHeight = size.height * 0.19; // 10% of the screen height
     final gap = size.height * 0.01;
     double fontSize = 17;
-    List<Services> data =
-        getDriverServices(AppLocalizations.of(context)!.localeName);
+    List<Services> data = getEcosystemBiodiversityServices(
+        AppLocalizations.of(context)!.localeName);
     return Scaffold(
         appBar: PreferredSize(
             preferredSize:
@@ -25,7 +24,8 @@ class DriverService extends StatelessWidget {
             child: customAppBar(context, false,
                 title: AppLocalizations.of(context)!.office_name +
                     " " +
-                    AppLocalizations.of(context)!.driver_services)),
+                    AppLocalizations.of(context)!
+                        .biodiversity_and_ecosystem_management)),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),
@@ -67,7 +67,7 @@ class DriverService extends StatelessWidget {
           MaterialPageRoute(
               builder: (context) => DetailService(
                     index: index,
-                    type_service: 'driver',
+                    type_service: 'enviromental pollution',
                   )),
         );
       },
@@ -140,4 +140,18 @@ class DriverService extends StatelessWidget {
       ),
     );
   }
+}
+
+String displayTimeItTakes(BuildContext context, int minutes) {
+  return AppLocalizations.of(context)!.localeName == "am"
+      ? AppLocalizations.of(context)!.time_it_takes +
+          " " +
+          minutes.toString() +
+          " " +
+          AppLocalizations.of(context)!.minute
+      : AppLocalizations.of(context)!.time_it_takes +
+          " " +
+          AppLocalizations.of(context)!.minute +
+          " " +
+          minutes.toString();
 }

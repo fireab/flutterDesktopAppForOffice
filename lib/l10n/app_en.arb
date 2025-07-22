@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
     "hello": "Akkam Bultee",
-    "welcome": "Baga Gara Abbaa Taayitaa H---------nsa Magaalaa Finfinneetti Waajjira Damee NifasSilk Laaftoo dhuftan",
+    "welcome": "Baga Nagaan Dhuftan Abbaa Taayitaa Eegumsa Naannoo Addis Ababa",
     "services":"Tajaajiloota",
     "service_description":"Waa’ee tajaajila dhaabbaticha keessatti kennamuu fi kutaa tajaajilli itti kennamu, akkasumas tajaajilicha argachuuf maal isinirraa  akka eegamu  sin hubachiisa.",
     "direction":"Eessa deemuu barbaaddan",
@@ -17,7 +17,7 @@
     "minute":"Daqiqaa",
 
     "requirement_to_get_service":"Haala maamiltichi tajaajila argachuuf dursa guutachu qabu",
-    "office_name":"Bulchiinsa Magaalaa Finfinneetti Taayitaa Hayyama fi To'annoo Konkolaachisaa fi Konkolaataa Waajjira Damee NifasSilk Laaftoo",
+    "office_name":"Addis Ababa Environmental Protection Authority",
     "service_rate_title":"Tajaajila Waajjirri kennu irratti yaada Maamiltootaa Fudhachuuf CheckListii Qophaa'e",
     "full_name":"Maqaa guutuu koomii dhiyeessaa",
     "name":"Maqaa",

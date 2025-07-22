@@ -1,4 +1,8 @@
 import 'package:nifas_silk/constants/DriverServices.dart';
+import 'package:nifas_silk/constants/EnviromentalPollutionControl.dart';
+import 'package:nifas_silk/constants/ClimetChangeSErvice.dart';
+import 'package:nifas_silk/constants/EcosystemBiodiversity.dart';
+import 'package:nifas_silk/constants/MeneralResource.dart';
 import 'package:nifas_silk/constants/Services.dart';
 import 'package:nifas_silk/constants/VehicleServices.dart';
 
@@ -9,6 +13,46 @@ List<Services> getDriverServices(String locale) {
     return DriverEnglishServices;
   } else {
     return DriverAfaanOromooService;
+  }
+}
+
+List<Services> getEnvironmentalPollutionControlServices(String locale) {
+  if (locale == "am") {
+    return EnvironmentalPollutionControlAmharicServices;
+  } else if (locale == "es") {
+    return EnvironmentalPollutionControlEnglishServices;
+  } else {
+    return EnvironmentalPollutionControlEnglishServices;
+  }
+}
+
+List<Services> getClimentChangeService(String locale) {
+  if (locale == "am") {
+    return ClimateChangeAmharicServices;
+  } else if (locale == "es") {
+    return ClimateChangeEnglishServices;
+  } else {
+    return ClimateChangeEnglishServices;
+  }
+}
+
+List<Services> getMineralResourceService(String locale) {
+  if (locale == "am") {
+    return MineralResourceAmharicServices;
+  } else if (locale == "es") {
+    return MineralResourceEnglishServices;
+  } else {
+    return MineralResourceEnglishServices;
+  }
+}
+
+List<Services> getEcosystemBiodiversityServices(String locale) {
+  if (locale == "am") {
+    return EcosystemBiodiversityAmharicServices;
+  } else if (locale == "es") {
+    return EcosystemBiodiversityEnglishServices;
+  } else {
+    return EcosystemBiodiversityEnglishServices;
   }
 }
 
@@ -23,21 +67,30 @@ List<Services> getVehicleServices(String locale) {
 }
 
 Services findServiceByTypeAndIndex(int index, String type, String locale) {
+  print(type);
   if (locale == "am") {
     if (type == "driver") {
       return DriverAmharicService[index];
+    } else if (type == "enviromental pollution") {
+      return EnvironmentalPollutionControlAmharicServices[index];
     } else {
       return VehicleAmharicService[index];
     }
   } else if (locale == "es") {
     if (type == "driver") {
       return DriverEnglishServices[index];
+    } else if (type == "enviromental pollution") {
+      print("aaaaa");
+      return EnvironmentalPollutionControlEnglishServices[index];
     } else {
+      print("bbbbb");
       return VehicleEnglishServices[index];
     }
   } else {
     if (type == "driver") {
       return DriverAfaanOromooService[index];
+    } else if (type == "enviromental pollution") {
+      return EnvironmentalPollutionControlEnglishServices[index];
     } else {
       return VehicleAfaanOromooService[index];
     }

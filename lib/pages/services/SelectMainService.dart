@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nifas_silk/l10n/app_localizations.dart';
 import 'package:flutter/gestures.dart';
-import 'package:nifas_silk/pages/services/DriverServiceList.dart';
-import 'package:nifas_silk/pages/services/EnvironmentalPollutionControl.dart';
+import 'package:nifas_silk/pages/services/EnviromentalPollution.dart';
+import 'package:nifas_silk/pages/services/BioDiversity.dart';
 import 'package:nifas_silk/pages/services/VehicleServiceList.dart';
 import 'package:nifas_silk/pages/services/climateChangeAndAlternativEnergy.dart';
 import 'package:nifas_silk/shared/CustomAppBar.dart';
@@ -37,39 +37,10 @@ class SelectMainService extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => VehicleServices()),
-                      );
-                    },
-                    icon: 'assets/icons/vehicle.png',
-                    label: AppLocalizations.of(context)!.vehicle_services,
-                    buttonHeight: buttonHeight,
-                    fontSize: size.width * 0.038,
-                  ),
-                  SizedBox(height: 28),
-                  _FancyServiceButton(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                EnvironmentalPollutionControlService()),
-                      );
-                    },
-                    icon: 'assets/icons/driver2.png',
-                    label: AppLocalizations.of(context)!.driver_services,
-                    buttonHeight: buttonHeight,
-                    fontSize: size.width * 0.038,
-                  ),
-                  SizedBox(height: 28),
-                  _FancyServiceButton(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
                             builder: (context) => DriverService()),
                       );
                     },
-                    icon: 'assets/icons/driver2.png',
+                    icon: 'assets/icons/responsible.png',
                     label: AppLocalizations.of(context)!
                         .environmental_pollution_control,
                     buttonHeight: buttonHeight,
@@ -85,9 +56,39 @@ class SelectMainService extends StatelessWidget {
                                 climateChangeAndAlternativEnergyService()),
                       );
                     },
-                    icon: 'assets/icons/driver2.png',
+                    icon: 'assets/icons/responsible.png',
                     label: AppLocalizations.of(context)!
                         .climate_change_and_alternative_energy_technology_dissemination_and_awareness,
+                    buttonHeight: buttonHeight,
+                    fontSize: size.width * 0.038,
+                  ),
+                  SizedBox(height: 28),
+                  _FancyServiceButton(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VehicleServices()),
+                      );
+                    },
+                    icon: 'assets/icons/responsible.png',
+                    label: AppLocalizations.of(context)!
+                        .mineral_resource_research_Licensing_and_management,
+                    buttonHeight: buttonHeight,
+                    fontSize: size.width * 0.038,
+                  ),
+                  SizedBox(height: 28),
+                  _FancyServiceButton(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BioDiversitySErvice()),
+                      );
+                    },
+                    icon: 'assets/icons/responsible.png',
+                    label: AppLocalizations.of(context)!
+                        .biodiversity_and_ecosystem_management,
                     buttonHeight: buttonHeight,
                     fontSize: size.width * 0.038,
                   ),
