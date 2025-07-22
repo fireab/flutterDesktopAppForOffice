@@ -63,14 +63,14 @@ class VehicleServices extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // VehicleServices
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => DetailService(
-                    index: index,
-                    type_service: 'mineral resource',
-                  )),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //       builder: (context) => DetailService(
+        //             index: index,
+        //             type_service: 'mineral resource',
+        //           )),
+        // );
       },
       child: Material(
         elevation: 4.0,

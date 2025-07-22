@@ -128,9 +128,13 @@ class _FeedBackFormState extends State<FeedBackForm> {
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         ));
         await Future.delayed(Duration(seconds: 2));
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => LanguageSelector()));
+        // Navigator.pushReplacement(
+        //     context, MaterialPageRoute(builder: (_) => LanguageSelector()));
+        print("bro pass!!!");
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => LanguageSelector()));
       } catch (e) {
+        print("bro not pass");
         print("Submit failed: $e");
       }
     }

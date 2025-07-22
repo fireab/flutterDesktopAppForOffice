@@ -64,14 +64,14 @@ class DriverService extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // VehicleServices
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => DetailService(
-                    index: index,
-                    type_service: 'enviromental pollution',
-                  )),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //       builder: (context) => DetailService(
+        //             index: index,
+        //             type_service: 'enviromental pollution',
+        //           )),
+        // );
       },
       child: Material(
         elevation: 4.0,

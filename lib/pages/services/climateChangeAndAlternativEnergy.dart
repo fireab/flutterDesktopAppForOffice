@@ -63,14 +63,14 @@ class climateChangeAndAlternativEnergyService extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // VehicleServices
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => DetailService(
-                    index: index,
-                    type_service: 'climate change',
-                  )),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //       builder: (context) => DetailService(
+        //             index: index,
+        //             type_service: 'climate change',
+        //           )),
+        // );
       },
       child: Material(
         elevation: 4.0,

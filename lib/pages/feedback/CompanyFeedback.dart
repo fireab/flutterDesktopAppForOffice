@@ -4,6 +4,7 @@ import 'package:nifas_silk/constants/BaseApi.dart';
 import 'package:nifas_silk/pages/feedback/SoundFeedback.dart';
 import 'package:nifas_silk/shared/CustomAppBar.dart';
 import 'package:nifas_silk/l10n/app_localizations.dart';
+import 'package:nifas_silk/pages/LanguageSelector.dart';
 
 class CompanyFeedbackForm extends StatefulWidget {
   @override
@@ -37,6 +38,11 @@ class _CompanyFeedbackFormState extends State<CompanyFeedbackForm> {
         if (response.statusCode == 200) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Form submitted successfully!')),
+          );
+          // Redirect to language page after successful submission
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => LanguageSelector()),
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(

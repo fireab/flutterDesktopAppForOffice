@@ -63,14 +63,14 @@ class BioDiversitySErvice extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // VehicleServices
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => DetailService(
-                    index: index,
-                    type_service: 'ecosystem biodiversity',
-                  )),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //       builder: (context) => DetailService(
+        //             index: index,
+        //             type_service: 'ecosystem biodiversity',
+        //           )),
+        // );
       },
       child: Material(
         elevation: 4.0,
