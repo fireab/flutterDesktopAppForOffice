@@ -58,7 +58,8 @@ class VehicleServices extends StatelessWidget {
       double fontSize,
       String name,
       int minutes) {
-    String time_decription = displayTimeItTakes(context, minutes);
+    String time_decription = "";
+    // displayTimeItTakes(context, minutes);
     return GestureDetector(
       onTap: () {
         // VehicleServices
@@ -67,7 +68,7 @@ class VehicleServices extends StatelessWidget {
           MaterialPageRoute(
               builder: (context) => DetailService(
                     index: index,
-                    type_service: 'vehicle',
+                    type_service: 'mineral resource',
                   )),
         );
       },

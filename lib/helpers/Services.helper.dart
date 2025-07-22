@@ -1,6 +1,6 @@
 import 'package:nifas_silk/constants/DriverServices.dart';
 import 'package:nifas_silk/constants/EnviromentalPollutionControl.dart';
-import 'package:nifas_silk/constants/ClimetChangeSErvice.dart';
+import 'package:nifas_silk/constants/ClimateChangeSErvice.dart';
 import 'package:nifas_silk/constants/EcosystemBiodiversity.dart';
 import 'package:nifas_silk/constants/MeneralResource.dart';
 import 'package:nifas_silk/constants/Services.dart';
@@ -73,6 +73,12 @@ Services findServiceByTypeAndIndex(int index, String type, String locale) {
       return DriverAmharicService[index];
     } else if (type == "enviromental pollution") {
       return EnvironmentalPollutionControlAmharicServices[index];
+    } else if (type == "climate change") {
+      return ClimateChangeAmharicServices[index];
+    } else if (type == "ecosystem biodiversity") {
+      return EcosystemBiodiversityAmharicServices[index];
+    } else if (type == "mineral resource") {
+      return MineralResourceAmharicServices[index];
     } else {
       return VehicleAmharicService[index];
     }
@@ -80,10 +86,14 @@ Services findServiceByTypeAndIndex(int index, String type, String locale) {
     if (type == "driver") {
       return DriverEnglishServices[index];
     } else if (type == "enviromental pollution") {
-      print("aaaaa");
       return EnvironmentalPollutionControlEnglishServices[index];
+    } else if (type == "climate change") {
+      return ClimateChangeEnglishServices[index];
+    } else if (type == "ecosystem biodiversity") {
+      return EcosystemBiodiversityEnglishServices[index];
+    } else if (type == "mineral resource") {
+      return MineralResourceEnglishServices[index];
     } else {
-      print("bbbbb");
       return VehicleEnglishServices[index];
     }
   } else {
@@ -91,6 +101,12 @@ Services findServiceByTypeAndIndex(int index, String type, String locale) {
       return DriverAfaanOromooService[index];
     } else if (type == "enviromental pollution") {
       return EnvironmentalPollutionControlEnglishServices[index];
+    } else if (type == "climate change") {
+      return ClimateChangeEnglishServices[index];
+    } else if (type == "ecosystem biodiversity") {
+      return EcosystemBiodiversityEnglishServices[index];
+    } else if (type == "mineral resource") {
+      return MineralResourceEnglishServices[index];
     } else {
       return VehicleAfaanOromooService[index];
     }
