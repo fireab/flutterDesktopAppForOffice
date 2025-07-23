@@ -170,9 +170,9 @@ name: Build Flutter Windows App with Installer
 
 on:
   push:
-    branches: [feature]
+    branches: [vibe]
   pull_request:
-    branches: [feature]
+    branches: [vibe]
   workflow_dispatch:
 
 jobs:
