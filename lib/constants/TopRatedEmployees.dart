@@ -55,7 +55,7 @@ class TopRatedEmployee {
   factory TopRatedEmployee.fromJson(Map<String, dynamic> json) {
     return TopRatedEmployee(
         EmployeeId: json['EmployeeId'],
-        averageScore: json['averageScore'],
+        averageScore: json['averageScore'].toString(),
         employee: Employee.fromJson(json['employee']));
   }
   String getAverageScoreToPercentage() {
