@@ -106,7 +106,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
-  /// **'Baga Gara Abbaa Taayitaa H---------nsa Magaalaa Finfinneetti Waajjira Damee NifasSilk Laaftoo dhuftan'**
+  /// **'Baga Nagaan Dhuftan Abbaa Taayitaa Eegumsa Naannoo Addis Ababa'**
   String get welcome;
 
   /// No description provided for @services.
@@ -190,7 +190,7 @@ abstract class AppLocalizations {
   /// No description provided for @office_name.
   ///
   /// In en, this message translates to:
-  /// **'Bulchiinsa Magaalaa Finfinneetti Taayitaa Hayyama fi To\'annoo Konkolaachisaa fi Konkolaataa Waajjira Damee NifasSilk Laaftoo'**
+  /// **'Addis Ababa Environmental Protection Authority'**
   String get office_name;
 
   /// No description provided for @service_rate_title.

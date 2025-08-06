@@ -12,35 +12,31 @@ class AppLocalizationsAm extends AppLocalizations {
   String get hello => 'እንዴት ዋልክ';
 
   @override
-  String get welcome => 'እንኳን ወደ አዲስ አበባ ከተማ አካባቢ ጥበቃ ባለስልጣን';
+  String get welcome => 'እንኳን ወደ አዲስ አበባ የአካባቢ ጥበቃ ባለሥልጣን በደህና መጡ።';
 
   @override
   String get services => 'አገልግሎቶች ';
 
   @override
-  String get service_description =>
-      'በተቋሙ ዉስጥ ስለሚሰጡ አገልግሎቶች እና አገልግሎቶቹ የሚሰጡበት ክፍል እንዲሁም አገልግሎቱን ለማግኘት ከርሶ ምን እንደሚጠበቅ ማወቅ ያስችሎታል ';
+  String get service_description => 'በተቋሙ ዉስጥ ስለሚሰጡ አገልግሎቶች እና አገልግሎቶቹ የሚሰጡበት ክፍል እንዲሁም አገልግሎቱን ለማግኘት ከርሶ ምን እንደሚጠበቅ ማወቅ ያስችሎታል ';
 
   @override
   String get direction => 'የት መሄድ ይፈልጋሉ ';
 
   @override
-  String get direction_description =>
-      'ተቋሙ ውስጥ ያሉ የስራ ክፍሎችን ወይም ባልሙያዎችና ሃላፊዎች ያሉበትን ማወቅ ያስችሎታል';
+  String get direction_description => 'ተቋሙ ውስጥ ያሉ የስራ ክፍሎችን ወይም ባልሙያዎችና ሃላፊዎች ያሉበትን ማወቅ ያስችሎታል';
 
   @override
   String get comment_company => 'አስትያየት';
 
   @override
-  String get comment_description =>
-      'በተቋሙ ውስጥ ስለሚሰጡ አገልግሎቶች ቅሬታ ካለ ቅሬታዎን ለመግለጽ ይህን ይጠቀሙ';
+  String get comment_description => 'በተቋሙ ውስጥ ስለሚሰጡ አገልግሎቶች ቅሬታ ካለ ቅሬታዎን ለመግለጽ ይህን ይጠቀሙ';
 
   @override
   String get rate => 'ይገምግሙን';
 
   @override
-  String get rate_description =>
-      'በተቋሙ የአገልግሎት አሰጣጥና እና መስተንዶ ላይ ያሎትን እርካታ ይግለጹ';
+  String get rate_description => 'በተቋሙ የአገልግሎት አሰጣጥና እና መስተንዶ ላይ ያሎትን እርካታ ይግለጹ';
 
   @override
   String get driver_services => 'የ አሽከርካሪ አገልግሎቶች';
@@ -55,16 +51,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get minute => 'ደቂቃ';
 
   @override
-  String get requirement_to_get_service =>
-      'ተገልጋዩ አገልግሎቱን ለማግኘት ማሟላት ያለበት ቅድመ ሁኔታ';
+  String get requirement_to_get_service => 'ተገልጋዩ አገልግሎቱን ለማግኘት ማሟላት ያለበት ቅድመ ሁኔታ';
 
   @override
-  String get office_name =>
-      'በአዲስ አበባ ከተማ አስተዳደር አሽከርካሪ እና ተሽከርካሪ ፍቃድና ቁጥጥር ባለስልጣን ነፋስ ስልክ ላፍቶ ቅርንጫፍ ፅ/ቤት';
+  String get office_name => 'የአዲስ አበባ ከተማ አካባቢ ጥበቃ ባለስልጣን';
 
   @override
-  String get service_rate_title =>
-      'በጽ/ቤቱ በተሠጡ አገልግሎቶች የተገልጋይ አስተያየት መቀበያ ቼክ -ሊስት';
+  String get service_rate_title => 'በጽ/ቤቱ በተሠጡ አገልግሎቶች የተገልጋይ አስተያየት መቀበያ ቼክ -ሊስት';
 
   @override
   String get full_name => 'የቅሬታ አቅራቢው ሙሉ ስም';
@@ -109,8 +102,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get supporting_data => 'ደጋፊ ዝርዝር ማስረጃዎች ካሉ';
 
   @override
-  String get complilmenter_need =>
-      'ባለጉዳዩ እንዲደረግለት ወይም እንዲፈጸምለት የሚፈልገው /በአጭሩ ይግለጹ/';
+  String get complilmenter_need => 'ባለጉዳዩ እንዲደረግለት ወይም እንዲፈጸምለት የሚፈልገው /በአጭሩ ይግለጹ/';
 
   @override
   String get date => 'ቀን';
@@ -119,24 +111,19 @@ class AppLocalizationsAm extends AppLocalizations {
   String get reminder => 'ማሳሰቢያ ';
 
   @override
-  String get reminder1 =>
-      'የቅሬታ ጉዳዩ በሚመለከተው የስራ ሂደት/ንዑስ የስራ ሂደት መሪ/አስተባባሪ የሚወሰን ነው።';
+  String get reminder1 => 'የቅሬታ ጉዳዩ በሚመለከተው የስራ ሂደት/ንዑስ የስራ ሂደት መሪ/አስተባባሪ የሚወሰን ነው።';
 
   @override
-  String get reminder2 =>
-      'ቅሬታ አቅራቢው ይህን ቅጽ ከመሙላት በፊት ጉዳዩን በቅድሚያ ለሚመለከተው አገልግሎቱን ለሰጠው ሰራተኛ ማስረዳቱንና መልስ ማግኘቱን ማረጋገጥ አለበት። በተሰጠው መልስ ካልረካ ይህን ቅጽ ሞልቶ የቅሬታ ጉዳዩ ለሚመለከተው የስራ ሂደት /ንዑስ የስራ መሪ/አስተባባሪ ማቅረብ አለበት።';
+  String get reminder2 => 'ቅሬታ አቅራቢው ይህን ቅጽ ከመሙላት በፊት ጉዳዩን በቅድሚያ ለሚመለከተው አገልግሎቱን ለሰጠው ሰራተኛ ማስረዳቱንና መልስ ማግኘቱን ማረጋገጥ አለበት። በተሰጠው መልስ ካልረካ ይህን ቅጽ ሞልቶ የቅሬታ ጉዳዩ ለሚመለከተው የስራ ሂደት /ንዑስ የስራ መሪ/አስተባባሪ ማቅረብ አለበት።';
 
   @override
-  String get reminder3 =>
-      'የቅሬታ ጉዳዬ የሚመለከተው የስራ ሂደት/ንዑስ የስራ መሪ/አስተባባሪ ጉዳዩን መርምሮ ለዚሁ በተዘጋጀ ቅጽ ላይ ውሳኔውን በማስፈር ለቅሬታ አቅራቢው ቅሬታውን በቀረበ በ3 ተከታታይ የስራ ቀናት ውስጥ በጽሁፍ ማስታወቅ አለበት። ';
+  String get reminder3 => 'የቅሬታ ጉዳዬ የሚመለከተው የስራ ሂደት/ንዑስ የስራ መሪ/አስተባባሪ ጉዳዩን መርምሮ ለዚሁ በተዘጋጀ ቅጽ ላይ ውሳኔውን በማስፈር ለቅሬታ አቅራቢው ቅሬታውን በቀረበ በ3 ተከታታይ የስራ ቀናት ውስጥ በጽሁፍ ማስታወቅ አለበት። ';
 
   @override
-  String get reminder4 =>
-      'ቅሬታ አቅራቢው በውሳኔው ካልረካ አቤቱታ ለሚያስተናግደው መ/ቤቱ የቅሬታ እና አቤቱታ ሰሚ አካል /ኮሚቴ/ ቀጥሎ ማመልከት ይቻላል።';
+  String get reminder4 => 'ቅሬታ አቅራቢው በውሳኔው ካልረካ አቤቱታ ለሚያስተናግደው መ/ቤቱ የቅሬታ እና አቤቱታ ሰሚ አካል /ኮሚቴ/ ቀጥሎ ማመልከት ይቻላል።';
 
   @override
-  String get reminder5 =>
-      'የቅሬታ ጉዳዩ በሚመለከተው የስራ ሂደት/ንዑስ የስራ ሂደት መሪ/አስተባባሪ የሚወሰን ነው።';
+  String get reminder5 => 'የቅሬታ ጉዳዩ በሚመለከተው የስራ ሂደት/ንዑስ የስራ ሂደት መሪ/አስተባባሪ የሚወሰን ነው።';
 
   @override
   String get submit => 'አስረክብ';
@@ -151,7 +138,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get select_local => 'እባክዎ ቋንቋ ይምረጡ';
 
   @override
-  String get office => 'መስኮት ቁጥር';
+  String get office => 'ቢሮ ቁጥር';
 
   @override
   String get select_an_office => 'የተገለገሉበትን ቢሮ ይምርጡ';
@@ -160,15 +147,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get form_sumbitted => 'ቅጹ በተሳካ ሁኔታ ገብቷል';
 
   @override
-  String get rate_overall_service =>
-      'በአገልግሎታችን ላይ ያሎት ምልከታ እንዴት ነበር፣ እና ምን ማሻሻል እንችላለን';
+  String get rate_overall_service => 'በአገልግሎታችን ላይ ያሎት ምልከታ እንዴት ነበር፣ እና ምን ማሻሻል እንችላለን';
 
   @override
   String get feed_back_form => 'የግብረመልስ ቅጽ';
 
   @override
-  String get feed_back_form_description =>
-      'የእርስዎ አስተያየት አገልግሎቶቻችንን እንድናሻሽል እና ለሁሉም ሰው የተሻለ ተሞክሮ እንድንፈጥር ያግዘናል። የእርስዎን ግንዛቤዎች እና ጥቆማዎች እናደንቃለን።';
+  String get feed_back_form_description => 'የእርስዎ አስተያየት አገልግሎቶቻችንን እንድናሻሽል እና ለሁሉም ሰው የተሻለ ተሞክሮ እንድንፈጥር ያግዘናል። የእርስዎን ግንዛቤዎች እና ጥቆማዎች እናደንቃለን።';
 
   @override
   String get comment => 'ቅሬታ';
@@ -210,8 +195,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get top_rated_tile => 'ምርጥ ፈጻሚዎች';
 
   @override
-  String get top_rated_description =>
-      'በደንበኞች በተሰጡ ውጤቶች መስረት ከፍተኛ ደረጃን ያገኙ ሰራተኞች';
+  String get top_rated_description => 'በደንበኞች በተሰጡ ውጤቶች መስረት ከፍተኛ ደረጃን ያገኙ ሰራተኞች';
 
   @override
   String get position => 'የስራ ድርሻ';
@@ -226,8 +210,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get group_members => 'በስሩ/በስሯ የሚገኙ ቡድኖች >>';
 
   @override
-  String get audio_description =>
-      'የድምጽ ግብረመልስ ለመስጠት የመዝገብ ቁልፉን ለማንቃት ሙሉ ስም እና ትክክለኛ ስልክ ቁጥር ያስገቡ ከዛም ድምጽ ለመቅረጽ በተኑን ይጫኑ  ሲጨርሱ መልሰው በተኑን ይጫኑ እና አስተያየቶትን ይላኩ .';
+  String get audio_description => 'የድምጽ ግብረመልስ ለመስጠት የመዝገብ ቁልፉን ለማንቃት ሙሉ ስም እና ትክክለኛ ስልክ ቁጥር ያስገቡ ከዛም ድምጽ ለመቅረጽ በተኑን ይጫኑ  ሲጨርሱ መልሰው በተኑን ይጫኑ እና አስተያየቶትን ይላኩ .';
 
   @override
   String get burueu => 'ቢሮ ቁጥር';
@@ -236,15 +219,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get environmental_pollution_control => 'የአካባቢ ብክለት ቁጥጥር';
 
   @override
-  String
-      get climate_change_and_alternative_energy_technology_dissemination_and_awareness =>
-          'የአየር ንብረት ለውጥና አማራጭ ኢነርጂ ቴክኖሎጂ ስርጭትና ማስተዋወቅ';
+  String get climate_change_and_alternative_energy_technology_dissemination_and_awareness => 'የአየር ንብረት ለውጥና አማራጭ ኢነርጂ ቴክኖሎጂ ስርጭትና ማስተዋወቅ';
 
   @override
-  String get mineral_resource_research_Licensing_and_management =>
-      'የማዕድን ሀብት ጥናትና ፈቃድና አስተዳደር ';
+  String get mineral_resource_research_Licensing_and_management => 'የማዕድን ሀብት ጥናትና ፈቃድና አስተዳደር ';
 
   @override
-  String get biodiversity_and_ecosystem_management =>
-      'የስርዓተ ምህዳርና  ብዝሃህይወት አያያዝ ';
+  String get biodiversity_and_ecosystem_management => 'የስርዓተ ምህዳርና  ብዝሃህይወት አያያዝ ';
 }

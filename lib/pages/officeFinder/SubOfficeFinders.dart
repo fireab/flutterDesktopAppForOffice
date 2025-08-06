@@ -26,7 +26,8 @@ class _SubOfficersFindersState extends State<SubOfficersFinders> {
 
   Future<List<Employee>> fetchSubEmployees() async {
     final response =
-        await http.get(Uri.parse('http://10.33.79.21:2000/employee/'));
+        // await http.get(Uri.parse('http://10.33.79.21:2000/employee/'));
+        await http.get(Uri.parse('http://localhost:2000/employee/'));
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);

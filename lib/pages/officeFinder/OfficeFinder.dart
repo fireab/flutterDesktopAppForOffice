@@ -47,7 +47,8 @@ class _OfficefinderState extends State<Officefinder> {
     if (office_group.contains(id)) {
       return AppLocalizations.of(context)!.office + " - " + office_number;
     } else {
-      return AppLocalizations.of(context)!.burueu + " - " + office_number;
+      // return AppLocalizations.of(context)!.burueu + " - " + office_number;
+      return AppLocalizations.of(context)!.office + " - " + office_number;
     }
   }
 
