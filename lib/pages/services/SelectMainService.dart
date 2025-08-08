@@ -21,16 +21,22 @@ class SelectMainService extends StatelessWidget {
             child: customAppBar(context, false)),
         body: Container(
           width: double.infinity,
+          height: size.height, // Fill the screen vertically
           color: Colors.white,
           child: Center(
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth: 700,
+                maxWidth: size.width * 0.7, // Medium width
               ),
-              child: ListView(
-                shrinkWrap: true,
+              child: GridView.count(
+                crossAxisCount: 2,
+                mainAxisSpacing: 28,
+                crossAxisSpacing: 28,
+                childAspectRatio:
+                    (size.width * 0.7 / 2) / ((size.height - 100 - 64) / 2),
+                // ^ This makes each card fill half the available height and width
                 padding:
-                    const EdgeInsets.symmetric(vertical: 40, horizontal: 8),
+                    const EdgeInsets.symmetric(vertical: 32, horizontal: 8),
                 children: [
                   _FancyServiceButton(
                     onTap: () {
@@ -43,10 +49,10 @@ class SelectMainService extends StatelessWidget {
                     icon: 'assets/icons/responsible.png',
                     label: AppLocalizations.of(context)!
                         .environmental_pollution_control,
-                    buttonHeight: buttonHeight,
+                    buttonHeight:
+                        (size.height - 100 - 64) / 2 - 28, // auto height
                     fontSize: size.width * 0.038,
                   ),
-                  SizedBox(height: 28),
                   _FancyServiceButton(
                     onTap: () {
                       Navigator.push(
@@ -59,10 +65,9 @@ class SelectMainService extends StatelessWidget {
                     icon: 'assets/icons/responsible.png',
                     label: AppLocalizations.of(context)!
                         .climate_change_and_alternative_energy_technology_dissemination_and_awareness,
-                    buttonHeight: buttonHeight,
+                    buttonHeight: (size.height - 100 - 64) / 2 - 28,
                     fontSize: size.width * 0.038,
                   ),
-                  SizedBox(height: 28),
                   _FancyServiceButton(
                     onTap: () {
                       Navigator.push(
@@ -74,10 +79,9 @@ class SelectMainService extends StatelessWidget {
                     icon: 'assets/icons/responsible.png',
                     label: AppLocalizations.of(context)!
                         .mineral_resource_research_Licensing_and_management,
-                    buttonHeight: buttonHeight,
+                    buttonHeight: (size.height - 100 - 64) / 2 - 28,
                     fontSize: size.width * 0.038,
                   ),
-                  SizedBox(height: 28),
                   _FancyServiceButton(
                     onTap: () {
                       Navigator.push(
@@ -89,10 +93,9 @@ class SelectMainService extends StatelessWidget {
                     icon: 'assets/icons/responsible.png',
                     label: AppLocalizations.of(context)!
                         .biodiversity_and_ecosystem_management,
-                    buttonHeight: buttonHeight,
+                    buttonHeight: (size.height - 100 - 64) / 2 - 28,
                     fontSize: size.width * 0.038,
                   ),
-                  // Add more _FancyServiceButton widgets here as needed
                 ],
               ),
             ),

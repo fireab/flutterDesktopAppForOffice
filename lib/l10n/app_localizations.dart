@@ -394,7 +394,7 @@ abstract class AppLocalizations {
   /// No description provided for @comment.
   ///
   /// In en, this message translates to:
-  /// **'Koomii kennuu'**
+  /// **'koomi dhiiyeesu'**
   String get comment;
 
   /// No description provided for @comments.

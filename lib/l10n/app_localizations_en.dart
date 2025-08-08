@@ -156,7 +156,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get feed_back_form_description => 'yaadni keessan tajaajila keenya fooyyessuu fi muuxannoo fooyya\'aa nama hundaaf uumuuf nu gargaara. Hubannoo fi yaada keessaniif iddoo guddaa kennina.';
 
   @override
-  String get comment => 'Koomii kennuu';
+  String get comment => 'koomi dhiiyeesu';
 
   @override
   String get comments => 'Yaada Keennu';
